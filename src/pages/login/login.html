@@ -1,0 +1,17 @@
+<ion-list inset>
+  <ion-item>
+      <ion-label stacked>Username</ion-label>
+      <ion-input type="text" ng-model="data.username"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input type="password" ng-model="data.password"></ion-input>
+  </ion-item>
+</ion-list>
+<div padding>
+  <ion-row>
+    <ion-col center text-center>
+      <button ion-button full color="lightText" (click)="login()">Log in</button>
+    </ion-col>
+  </ion-row>
+</div>
