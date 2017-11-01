@@ -1,17 +1,24 @@
-<ion-list inset>
-  <ion-item>
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="logForm(form)">
+  <ion-list inset>
+    <ion-item>
       <ion-label stacked>Username</ion-label>
-      <ion-input type="text" ng-model="data.username"></ion-input>
-  </ion-item>
-  <ion-item>
+      <ion-input type="text" id="username" name="username" [(ngModel)]="username" required></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label stacked>Password</ion-label>
-      <ion-input type="password" ng-model="data.password"></ion-input>
-  </ion-item>
-</ion-list>
-<div padding>
+      <ion-input type="password"  id="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-col center text-center>
+          <button ion-button type="submit" block>Sign In</button>
+      </ion-col>
+    </ion-item>
+  </ion-list>
+  </form>
   <ion-row>
     <ion-col center text-center>
-      <button ion-button full color="lightText" (click)="login()">Log in</button>
+      <button ion-button full color="lightText" (click)="Signup()">Sign Up</button>
     </ion-col>
   </ion-row>
-</div>
+</ion-content>
