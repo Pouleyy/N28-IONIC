@@ -1,10 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Relevé de compte</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
+<!--<ion-content padding>
   <h2>Welcome to Ionic!</h2>
   <p>
     This starter project comes with simple tabs-based layout for apps
@@ -14,4 +13,64 @@
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
+</ion-content>-->
+<!-- Segment in a header -->
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="value">
+      <ion-segment-button value="Tout">
+        Tout
+      </ion-segment-button>
+      <ion-segment-button value="Revenus">
+        Revenus
+      </ion-segment-button>
+      <ion-segment-button value="Depenses">
+        Dépenses
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+<div [ngSwitch]="pet">
+    <ion-card >
+      <ion-card-content>
+        <ion-card-title text-center>
+          Carrefour
+        </ion-card-title>
+      </ion-card-content>
+  
+      <ion-row no-padding>
+        <ion-col text-center>
+            <p style="color:green;">
+                <ion-icon name='arrow-dropup' ></ion-icon> 20€
+            </p>
+        </ion-col>
+        <ion-col text-center color="green">
+            <p style="color:green;">
+                <ion-icon name='calendar' ></ion-icon> 20/05/2017
+            </p>
+        </ion-col>
+      </ion-row>
+  
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+          <ion-card-title text-center>
+            Carrefour
+          </ion-card-title>
+        </ion-card-content>
+    
+        <ion-row no-padding>
+          <ion-col text-center>
+              <p style="color:red;">
+                  <ion-icon name='arrow-dropdown' ></ion-icon> 20€
+              </p>
+          </ion-col>
+          <ion-col text-center color="green">
+              <p style="color:red;">
+                  <ion-icon name='calendar' ></ion-icon> 20/05/2017
+              </p>
+          </ion-col>
+        </ion-row>
+    
+      </ion-card>
+  </div>
 </ion-content>

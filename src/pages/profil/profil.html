@@ -1,17 +1,42 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Profil
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
-</ion-content>
+<ion-header>
+    <ion-navbar>
+      <ion-title>Profil</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="cards-bg">
+  
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+        </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+  
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='star'></ion-icon>
+            Favorite
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='musical-notes'></ion-icon>
+            Listen
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='share-alt'></ion-icon>
+            Share
+          </button>
+        </ion-col>
+      </ion-row>
+  
+    </ion-card> 
+  </ion-content>
