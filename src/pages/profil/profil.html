@@ -1,42 +1,54 @@
-
 <ion-header>
-    <ion-navbar>
-      <ion-title>Profil</ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content class="cards-bg">
-  
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title>
-          Nine Inch Nails Live
-        </ion-card-title>
-        <p>
-          The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-        </p>
-      </ion-card-content>
-  
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='star'></ion-icon>
-            Favorite
-          </button>
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='musical-notes'></ion-icon>
-            Listen
-          </button>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button clear small color="danger" icon-start>
-            <ion-icon name='share-alt'></ion-icon>
-            Share
-          </button>
-        </ion-col>
-      </ion-row>
-  
-    </ion-card> 
-  </ion-content>
+  <ion-navbar>
+    <ion-title text-center>Profil</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card id="">
+    <ion-list>
+      <div class="weather">
+        <ion-icon name="sunny" class ="weatherIcon"><br/>1500 €</ion-icon>
+      </div>
+      <div>
+        <ion-list>
+          <ion-item-divider color="light">
+            Personnal informations
+          </ion-item-divider>
+          <ion-item-sliding>
+            <ion-item color="positive">
+              <ion-icon name="contact" item-left></ion-icon>
+              Yann AVONDO
+            </ion-item>
+            <ion-item-options side="left">
+              <button ion-button color="light"></button>
+              <button ion-button color="positive"></button>
+            </ion-item-options>
+          </ion-item-sliding>
+          <ion-item color="positive">
+            <ion-icon name="mail" item-left></ion-icon>
+            yann.avondo@gmail.com
+          </ion-item>
+          <ion-item-divider color="light">
+            Bank informations
+          </ion-item-divider>
+        </ion-list>
+        <div >
+          <ion-list>
+            <ion-item color="positive" >
+              <ion-icon name="card" item-left></ion-icon>
+              YANN AVONDO
+            </ion-item>
+            <ion-item color="positive" >
+              <ion-icon name="mail" item-left></ion-icon>
+              FR7630001007941234567890185
+            </ion-item>
+            <ion-item color="positive">
+              <ion-icon name="mail" item-left></ion-icon>
+              NVHTFRPP
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+    </ion-list>
+  </ion-card>
+</ion-content>
