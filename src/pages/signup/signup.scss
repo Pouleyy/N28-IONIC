@@ -1,3 +1,25 @@
 page-signup {
-
+    h3{
+        color:#000000;
+        font-weight:400;
+        text-align:center;
+    }img{
+        padding-top: 20px;
+        max-height: 400px;
+        max-width: 300px;
+        display:block;
+        width:70%;
+        height:auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    ion-label{
+        text-align: center;
+    }
+    ion-input{
+        text-align:center;
+    }
+    .spacer30{
+        height: 30px;
+    }
 }

@@ -7,31 +7,44 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signup</ion-title>
+    <ion-title center>Sign Up</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content>
-  <ion-list inset>
+<ion-content class="vertical-align-content">
+  <img src="./../../assets/img/N28Login.png" />
+  <form #form="ngForm" (ngSubmit)="Register(form)">
+  <ion-list>          
     <ion-item>
-      <ion-label stacked>Username</ion-label>
-      <ion-input type="text" ng-model="data.username"></ion-input>
+      <ion-label stacked>
+        Username
+      </ion-label>
+      <ion-input type="text" id="username" placeholder="Enter your username" id="username" name="username" [(ngModel)]="username"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input type="password" ng-model="data.password"></ion-input>
+      <ion-label stacked>
+        Email
+      </ion-label>
+      <ion-input type="email" placeholder="Enter your email" name="email" id="email" name="email" [(ngModel)]="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Confirm PassWord</ion-label>
-      <ion-input type="password" ng-model="data.confirmpassword"></ion-input>
+      <ion-label stacked>
+        Password
+      </ion-label>
+      <ion-input type="password" placeholder="Enter your password" name="password" id="password" [(ngModel)]="password"></ion-input>
     </ion-item>
-  </ion-list>
-  <div padding>
-    <ion-row>
-      <ion-col center text-center>
-        <button ion-button full color="lightText" (click)="Signup()">Sign Up</button>
-      </ion-col>
-    </ion-row>
-  </div>
+      <ion-item>
+        <ion-label stacked>
+          Password confirm
+        </ion-label>
+        <ion-input type="password" placeholder="Confirm your password" name="passwordConfirm" id="passwordConfirm" [(ngModel)]="passwordConfirm"></ion-input>
+      </ion-item>
+      <div class="spacer30"></div>
+      <button ion-button color="light" block type="submit">
+        <ion-icon name="log-in"></ion-icon>
+      </button>
+    </ion-list>
+
+  </form>
 </ion-content>
