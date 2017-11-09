@@ -1,24 +1,29 @@
 <ion-content>
   <form #form="ngForm" (ngSubmit)="logForm(form)">
-  <ion-list inset>
-    <ion-item>
-      <ion-label stacked>Username</ion-label>
-      <ion-input type="text" id="username" name="username" [(ngModel)]="username" required></ion-input>
+    <img src="./../../assets/img/N28Login.png" />
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>
+          username
+        </ion-label>
+        <ion-input type="text" id="username" placeholder="Enter your username" id="username" name="username" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>
+          Password
+        </ion-label>
+        <ion-input type="password" id="password" placeholder="Enter your password" [(ngModel)]="password" name="password"></ion-input>
+      </ion-item>
+      <div class="spacer20"></div>
+      <ion-item>
+      <button ion-button color="light" block type="submit">
+        <ion-icon name="log-in"></ion-icon>
+      </button>
     </ion-item>
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input type="password"  id="password" [(ngModel)]="password" name="password" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-col center text-center>
-          <button ion-button type="submit" block>Sign In</button>
-      </ion-col>
-    </ion-item>
-  </ion-list>
+    </ion-list>
   </form>
-  <ion-row>
-    <ion-col center text-center>
-      <button ion-button full color="lightText" (click)="Signup()">Sign Up</button>
-    </ion-col>
-  </ion-row>
+  <div class="spacer10"></div>
+  <button ion-button clear color="positive" block (click)="Signup()">
+      Or create an account
+  </button>
 </ion-content>

@@ -17,34 +17,46 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
       public toastCtrl: ToastController,
-      private user:HttpClient) {
+      private http:HttpClient) {
   
   }
   logForm(form) {    
-    this.user.put('http://localhost:3636/auth/login',form.value)
+    this.http.put('http://localhost:3636/auth/login',form.value)
     .subscribe(
       data => {
-          this.Login();
+          this.presentToast("Connection sucessfull.",true,data);
+      },err =>{
+        if (err.status==401 && err.status==404)
+        {
+          this.presentToast("Username or password invalid.");
+        }
+        if (err.status==400)
+        {
+          this.presentToast("Write All champs")
+        }
       }
     );
     
   }
-  Login() {
-    this.presentToast("lol");
-  }
   Signup() {
     this.navCtrl.push(SignupPage);
   }
-  presentToast(message) {
+  presentToast(message, ondismiss=false,data=null) {
     const toast = this.toastCtrl.create({
       message: message,
-      duration: 1,
-      position: 'top'
+      duration: 3000,
+      position: 'middle'
     });
-
+    if (ondismiss)
+    {
     toast.onDidDismiss(() => {
-      this.navCtrl.push(TabsPage);
+      let user = data.user;
+      let jwt = data.token;
+      this.navCtrl.push(TabsPage,{
+        user:user,jwt:jwt
+      });
     });
+    }
     toast.present();
   }
 }
