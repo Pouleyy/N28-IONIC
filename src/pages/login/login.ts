@@ -6,6 +6,8 @@ import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 //import { Http, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http'; 
+import { HttpHeaders } from '@angular/common/http';
+import { AccountProvider} from '../../providers/account/account';
 
 
 @Component({
@@ -17,16 +19,43 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
       public toastCtrl: ToastController,
-      private http:HttpClient) {
+      private http:HttpClient,
+      public accprovider:AccountProvider) {
   
   }
-  logForm(form) {    
-    this.http.put('http://localhost:3636/auth/login',form.value)
+  logForm(form) {
+    var income = [];
+    let outcome = [];
+    this.http.put('http://37.59.114.40:3636/auth/login',form.value)
     .subscribe(
       data => {
-          this.presentToast("Connection sucessfull.",true,data);
-      },err =>{
-        if (err.status==401 && err.status==404)
+         this.results = data
+         let url = 'http://37.59.114.40:3636/transfer/'+ data["user"]["username"] + '/' + data["user"]["bankAccount"][0]["IBAN"]+ '/';
+         this.http.get(url,
+         { headers: new HttpHeaders().set('Authorization', data["token"])})
+         .subscribe(
+           dataTransfer => {
+             let result=dataTransfer;             
+             result["transfers"].forEach(element => {
+               if (element.receiver ==  this.results["user"]["bankAccount"][0]["IBAN"])
+               {
+                income.push(element)
+               }
+               else
+               {
+                 outcome.push(element)
+               }
+               
+             } );
+             this.accprovider.setTransferIncome(income);
+             this.accprovider.setTransferOutcome(outcome);
+             this.accprovider.setTransfers(result["transfers"]);
+             this.presentToast("Login Sucessfull",true,data)
+           }
+           );
+         
+      } ,err =>{
+        if (err.status==401 || err.status==404)
         {
           this.presentToast("Username or password invalid.");
         }
@@ -36,6 +65,7 @@ export class LoginPage {
         }
       }
     );
+  
     
   }
   Signup() {
@@ -52,9 +82,10 @@ export class LoginPage {
     toast.onDidDismiss(() => {
       let user = data.user;
       let jwt = data.token;
-      this.navCtrl.push(TabsPage,{
-        user:user,jwt:jwt
-      });
+      this.accprovider.setUser(user);
+      this.accprovider.setToken(jwt);
+      
+      this.navCtrl.push(TabsPage);
     });
     }
     toast.present();

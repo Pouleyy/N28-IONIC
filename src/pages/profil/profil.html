@@ -7,7 +7,10 @@
   <ion-card id="">
     <ion-list>
       <div class="weather">
-        <ion-icon name="sunny" class ="weatherIcon"><br/>1500 €</ion-icon>
+          <button class="weatherButton" ion-button color="light">
+             <ion-icon name="sunny" class ="weatherIcon" [ngStyle]="{color:getWeatherColor()}">
+              </ion-icon>
+          </button>
       </div>
       <div>
         <ion-list>
@@ -17,17 +20,21 @@
           <ion-item-sliding>
             <ion-item color="positive">
               <ion-icon name="contact" item-left></ion-icon>
-              Yann AVONDO
+              Username : {{this.profilInfos.id}}
             </ion-item>
-            <ion-item-options side="left">
-              <button ion-button color="light"></button>
-              <button ion-button color="positive"></button>
-            </ion-item-options>
           </ion-item-sliding>
           <ion-item color="positive">
             <ion-icon name="mail" item-left></ion-icon>
-            yann.avondo@gmail.com
+            Email : {{this.profilInfos.email}}
           </ion-item>
+          <ion-item color="positive">
+              <ion-icon name="calendar" item-left></ion-icon>
+              Registered : {{this.profilInfos.createdAt | date}}
+            </ion-item>
+            <ion-item color="positive">
+                <ion-icon name="log-in" item-left></ion-icon>
+                Last Connect : {{this.profilInfos.createdAt | date}}
+              </ion-item>
           <ion-item-divider color="light">
             Bank informations
           </ion-item-divider>
@@ -36,15 +43,11 @@
           <ion-list>
             <ion-item color="positive" >
               <ion-icon name="card" item-left></ion-icon>
-              YANN AVONDO
+              BIC : {{this.profilInfos.bankAccount[0].BIC}}
             </ion-item>
             <ion-item color="positive" >
               <ion-icon name="mail" item-left></ion-icon>
-              FR7630001007941234567890185
-            </ion-item>
-            <ion-item color="positive">
-              <ion-icon name="mail" item-left></ion-icon>
-              NVHTFRPP
+              IBAN : {{this.profilInfos.bankAccount[0].IBAN}}
             </ion-item>
           </ion-list>
         </div>

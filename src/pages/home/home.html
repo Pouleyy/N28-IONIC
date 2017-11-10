@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Relevé de compte</ion-title>
+    <ion-title text-center>Relevé de compte</ion-title>
   </ion-navbar>
 </ion-header>
 <!--<ion-content padding>
@@ -18,43 +18,38 @@
 <ion-content>
   <div padding>
     <ion-segment [(ngModel)]="value">
-      <ion-segment-button value="Tout">
-        Tout
-      </ion-segment-button>
-      <ion-segment-button value="Revenus">
-        Revenus
-      </ion-segment-button>
-      <ion-segment-button value="Depenses">
-        Dépenses
+      <ion-segment-button value="All">
+        Total ({{this.profilInfos.user.bankAccount[0].balance}})
       </ion-segment-button>
     </ion-segment>
   </div>
-<div [ngSwitch]="pet">
-    <ion-card >
+<div >
+    <ion-card *ngFor="let transferIncome of this.profilInfos.transfersIncome" >
       <ion-card-content>
         <ion-card-title text-center>
-          Carrefour
+           {{ transferIncome.reason}}
+           test
         </ion-card-title>
       </ion-card-content>
   
       <ion-row no-padding>
         <ion-col text-center>
             <p style="color:green;">
-                <ion-icon name='arrow-dropup' ></ion-icon> 20€
+                <ion-icon name='arrow-dropup' >{{transferIncome.amount}}</ion-icon> 
             </p>
         </ion-col>
         <ion-col text-center color="green">
             <p style="color:green;">
-                <ion-icon name='calendar' ></ion-icon> 20/05/2017
+                <ion-icon name='calendar'></ion-icon> {{transferIncome.transferAt | date}}
             </p>
         </ion-col>
       </ion-row>
-  
     </ion-card>
-    <ion-card>
+    <ion-card *ngFor="let transferOutcome of this.profilInfos.transfersOutcome">
         <ion-card-content>
           <ion-card-title text-center>
-            Carrefour
+            {{transferOutcome.reason}}
+            test
           </ion-card-title>
         </ion-card-content>
     

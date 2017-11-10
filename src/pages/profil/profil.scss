@@ -12,4 +12,13 @@ page-profil {
     color:#888;
     vertical-align:middle;
  }
+ .weatherButton{
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    height: auto;
+ }
+ .imgRotate {
+    transition: all 2s;
+    transform: rotate(360deg);
+}
 }
