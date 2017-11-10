@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       Transfer
     </ion-title>
   </ion-navbar>
@@ -24,11 +24,13 @@
              </ion-item>
 
              <ion-item>
-                    <ion-input placeholder="date" clearInput></ion-input>
+              <ion-label>Date</ion-label>
+              <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
             </ion-item>
 
              <ion-item>
                     <ion-input placeholder="Libelé(Falcultatif)" clearInput></ion-input>
+                    
             </ion-item>
               <ion-item>
                 <ion-col center text-center>
